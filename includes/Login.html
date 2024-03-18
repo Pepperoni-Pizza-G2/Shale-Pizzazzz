@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        /* CSS styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.error-message {
+  color: red;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="password"] {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+a {
+  text-decoration: none;
+  color: blue;
+  margin-bottom: 10px;
+}
+
+button[type="submit"] {
+  background-color: #4caf50;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+button[type="submit"]:focus {
+  outline: none;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Login</h1>
+        <p id="errorMessage" class="error-message"></p>
+        <form id="loginForm">
+            <label for="username">Name:</label>
+            <input type="text" name="username" id="usernameInput" placeholder="Username" required>
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="passwordInput" placeholder="Password" required>
+            <a href="">Forgot password?</a>
+            <button type="submit" style="background-color: red;">Login</button>
+            <a href="">Register an account?</a>
+        </form>
+        
+    </div>
+
+    <script>
+      // Event listener for form submission
+document.getElementById("loginForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent the form from submitting
+
+    // Get input values
+    var username = document.getElementById("usernameInput").value;
+    var password = document.getElementById("passwordInput").value;
+
+    // Call the login function
+    if (validateUser(username, password)) {
+        // Redirect to the main page after successful login
+        window.location.href = "D:/pizzaa/index.html"; // Chỉnh sửa đường dẫn thành "D:/pizzaa/index.html"
+    } else {
+        // Display error message
+        document.getElementById("errorMessage").textContent = "Invalid username or password.";
+    }
+});
+
+// Function to validate user credentials
+function validateUser(username, password) {
+    // Perform user authentication (e.g., make an API call)
+    // Return true if the login information is valid, otherwise return false
+    // This is just a simple example; you need to replace this function with your actual authentication logic
+    return username === "admin" && password === "123456";
+}
+
+    </script>
+</body>
+</html>
